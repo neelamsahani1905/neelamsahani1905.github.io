@@ -1,0 +1,269 @@
+:root
+{
+    --cream:#fff9eb;
+    --sage:#9fb2ac;
+    --wine:#5d0d18;
+    --ink:#2b0a0f
+}
+
+*{
+    box-sizing:border-box
+}
+
+html,body{
+    margin:0;
+    min-height:100%
+}
+
+body{
+    background:var(--cream);
+    color:var(--ink);
+    font:18px/1.65 "Source Serif 4",Georgia,serif;
+    overflow-x:hidden
+}
+
+h1,h2,h3,nav,.btn,.tag,dt{
+    font-family:Jost,"Segoe UI",Arial,sans-serif
+}
+
+a{
+    color:var(--wine)
+}
+
+a:focus-visible,.btn:focus-visible{
+    outline:3px solid var(--wine);
+    outline-offset:3px
+}
+
+/* animated background */
+.bg{
+    position:fixed;
+    inset:0;z-index:-1;
+    overflow:hidden;
+    background:var(--cream)
+}
+
+.bg i{
+    position:absolute;
+    display:block;
+    will-change:transform,border-radius
+}
+
+.b1{
+    width:70vmax;
+    height:60vmax;
+    background:var(--sage);
+    top:-15vmax;
+    left:-5vmax;
+    border-radius:60% 40% 55% 45%/50% 60% 40% 50%;
+    animation:m1 22s ease-in-out infinite alternate
+}
+
+.b2{
+    width:60vmax;
+    height:55vmax;
+    background:var(--wine);
+    bottom:-30vmax;
+    right:-20vmax;
+    border-radius:45% 55% 40% 60%/55% 45% 60% 40%;
+    animation:m2 26s ease-in-out infinite alternate
+}
+
+.b3{
+    width:30vmax;
+    height:28vmax;
+    background:var(--sage);
+    bottom:-8vmax;
+    left:-10vmax;
+    opacity:.7;
+    border-radius:55% 45% 60% 40%/45% 55% 45% 55%;
+    animation:m3 30s ease-in-out infinite alternate
+}
+
+@keyframes m1{
+    to{
+        transform:translate(8vmax,10vmax) rotate(14deg);
+        border-radius:40% 60% 45% 55%/60% 40% 55% 45%
+    }
+}
+
+@keyframes m2{
+    to{
+        transform:translate(-10vmax,-8vmax) rotate(-12deg);
+        border-radius:60% 40% 55% 45%/40% 60% 45% 55%
+    }
+}
+
+@keyframes m3{
+    to{
+        transform:translate(12vmax,-6vmax) rotate(20deg);
+        border-radius:40% 60% 50% 50%/55% 45% 60% 40%
+    }
+}
+
+@media(prefers-reduced-motion:reduce){.bg i,.page.on{animation:none}}
+
+/* layout */
+nav{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px 6px;
+    padding:18px 24px;
+    max-width:1040px;
+    margin:0 auto;
+    align-items:center
+}
+
+nav b{
+    margin-right:auto;
+    font-size:20px;
+    color:var(--wine);
+    font-weight:700
+}
+
+nav a{
+    font-size:15px;
+    font-weight:500;
+    text-decoration:none;
+    color:var(--wine);
+    padding:6px 12px;
+    border-radius:99px
+}
+
+nav a:hover{
+    background:rgba(255,249,235,.7)
+}
+
+nav a[
+    aria-current=page]{background:var(--wine);
+    color:var(--cream)
+}
+
+main{
+    max-width:1040px;
+    margin:0 auto;
+    padding:12px 24px 60px
+}
+
+.page{
+    display:none
+
+}
+.page.on{
+    display:block;
+    animation:in .5s ease
+}
+
+@keyframes in{
+    from{
+        opacity:0;
+        transform:translateY(10px)
+    }
+}
+
+.panel{
+    background:rgba(255,249,235,.92);
+    border-radius:28px 28px 28px 8px;
+    padding:36px;
+    box-shadow:0 10px 40px rgba(93,13,24,.15)
+}
+
+h1{
+    font-size:clamp(38px,6vw,64px);
+    line-height:1.05;
+    margin:0 0 16px;
+    color:var(--wine);
+    letter-spacing:-.02em
+}
+
+h2{
+    font-size:34px;
+    margin:0 0 20px;
+    color:var(--wine)
+}
+
+h3{
+    font-size:22px;
+    margin:22px 0 4px;
+    color:var(--wine)
+}
+
+.meta{
+    font-size:15px;
+    margin:0 0 8px;
+    opacity:.8
+}
+
+.btn{
+    display:inline-block;
+    padding:11px 22px;
+    border-radius:99px;
+    font-weight:700;
+    font-size:15px;
+    text-decoration:none;
+    margin:6px 10px 6px 0;
+    border:2px solid var(--wine);
+    color:var(--wine)
+}
+
+.btn.main{
+    background:var(--wine);
+    color:var(--cream)
+}
+
+.tag{
+    display:inline-block;
+    font-size:13px;
+    padding:3px 12px;
+    border-radius:99px;
+    background:var(--sage);
+    color:var(--wine);
+    margin:0 6px 6px 0;
+    font-weight:500
+}
+
+ul{
+    padding-left:20px
+}
+
+li{
+    margin-bottom:6px
+}
+
+dl{
+    display:grid;
+    grid-template-columns:170px 1fr;
+    gap:12px 20px;
+    margin:0
+}
+
+dt{
+    font-weight:700;
+    color:var(--wine)
+}
+
+dd{ margin:0 }
+
+.shots{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+    margin:18px 0
+}
+
+.shots img{
+    width:100%;
+    height:auto;
+    display:block;
+    border-radius:10px;
+    border:1px solid var(--sage)
+}
+
+footer{
+    text-align:center;
+    font-size:14px;
+    padding:0 24px 28px;
+    color:var(--wine)
+}
+
+@media(max-width:760px){dl,.shots{grid-template-columns:1fr}dt{margin-top:8px}.panel{padding:24px}}
